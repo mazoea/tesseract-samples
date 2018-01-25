@@ -66,7 +66,7 @@ int main()
         // note - you should compute these dynamically
         static constexpr int letter_w = 20;
         static constexpr int min_line_width = 200;
-        // remove narrower (sequential black pixels) objects than 2 * letter_w
+        // remove too narrow
         Pix* pix_lines = pixOpenBrick(nullptr, pix_bin, min_line_width, 1);
         pixSeedfillBinaryRestricted(pix_lines, pix_lines, pix_bin, 8, 3, 3);
         pix_bin_without_lines = pixSubtract(nullptr, pix_bin, pix_lines);
